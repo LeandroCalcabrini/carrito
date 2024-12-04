@@ -25,6 +25,14 @@ function App() {
       setCarrito(menosCantidad)
   };
 
+  const eliminarProducto = (producto) => {
+    const productoEliminado = carrito.filter(item => item.id !== producto.id)
+    setCarrito(productoEliminado)
+    
+ 
+  }
+
+
   useEffect(()=> {
     fetch('./data.json')
     .then(response => response.json())
@@ -42,7 +50,9 @@ function App() {
     reducirCantidad={reducirCantidad}
     />
     <Carrito
-    carrito={carrito}/>
+    carrito={carrito}
+    producto={productos}
+    eliminarProducto={eliminarProducto}/>
     </main>
   )
 }
