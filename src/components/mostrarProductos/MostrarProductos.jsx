@@ -3,7 +3,7 @@ import IconAddToCart from '../../images/icon-add-to-cart.svg'
 const MostrarProductos = ({productos, carrito, agregarProductoAlCarrito, agregarCantidad, reducirCantidad}) => {
     return(
         <section>
-            <h1>Desserts</h1>
+            <h1 className='titulo'>Desserts</h1>
              <div className="container-article">
            {productos.map(producto => {
             const productoEnCarrito = carrito.find(item => item.id === producto.id);
@@ -13,7 +13,7 @@ const MostrarProductos = ({productos, carrito, agregarProductoAlCarrito, agregar
                 key={producto.id}>
                     <div className="card-container-img">
                         <img
-                         className="card-img" 
+                         className={productoEnCarrito ? 'card-img active' : 'card-img'}
                          src={producto.image.desktop} 
                          alt={producto.name} />
                         {productoEnCarrito ?

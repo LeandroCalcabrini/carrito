@@ -36,13 +36,13 @@ function App() {
 
 
 
-
   useEffect(()=> {
     fetch('./data.json')
     .then(response => response.json())
     .then(data => setProductos(data))
     .catch(error => console.log('Error cargando productos:',error))
 },[]);
+
 
   return (
     <main>

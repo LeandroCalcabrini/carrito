@@ -38,7 +38,12 @@ const Carrito = ({carrito,eliminarProducto,calcularTotal}) => {
                             </div>
                         </div>              
                     ))}
-                    <span>Total: ${calcularTotal()}</span>        
+                    <span>Orden total: ${calcularTotal()}</span>    
+                    <div>
+                        <img src="" alt="" />
+                        <p>This is a <span>carbon-neutral</span> delivery</p>
+                    </div>
+                    <button className='btn-confirm'>Confirm Orden</button>    
                 </div>
                 }
                 

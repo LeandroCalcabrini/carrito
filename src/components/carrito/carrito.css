@@ -29,3 +29,7 @@
     border-radius: 999%;
     cursor: pointer;
 }
+
+.btn-confirm{
+    cursor: pointer;
+}

@@ -1,3 +1,10 @@
+.titulo{
+    color: var(--Rose-900);
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 20px 0;
+}
+
 .container-article{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -10,9 +17,14 @@
     border-radius: 10px;
 }
 
+.card-img.active{
+    border: solid 2px var(--Red);
+}
+
 .card-container-img{
     position: relative;
 }
+
 
 .card-button{
     position: absolute;
@@ -20,13 +32,17 @@
     left: 50%;
     transform: translateX(-50%);
     padding: 10px;
-    border-radius: 10px;
-    border: solid 1px orange;
+    border-radius: 20px;
+    border: solid 1px var(--Rose-500);
     background: white;
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+    color: var(--Rose-900);
+    font-weight: 600;
+    width: 50%;
 }
 
 .card-container-text{
@@ -41,15 +57,17 @@
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 10px;
+    border-radius: 15px;
     border: solid 1px orange;
-    background: white;
-    width: 120px;
+    background: var(--Red);
+    color: white;
+    width: 50%;
     height: 42px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+
 }
 
 .btn-cantidad{
@@ -57,10 +75,28 @@
     width: 20px;
     height: 20px;
     display: grid;
-    border: none;
+    border: solid 1px white;
     place-content: center;
-    padding: 5px;
     cursor: pointer;
+    color: white;
+    background-color: var(--Red);
+}
+
+.producto-nombre{
+    color: var(--Rose-900);
+    font-weight: 700;
+
+}
+
+.producto-categoria{
+    color: var(--Rose-500);
+    font-weight: 500;
+
+}
+
+.producto-precio{
+    color: var(--Red);
+    font-weight: 600;
 }
 
 
