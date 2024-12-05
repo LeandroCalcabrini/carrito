@@ -2,12 +2,12 @@ import emptyCart from '../../images/illustration-empty-cart.svg'
 import '../carrito/carrito.css'
 import iconRemove from '../../images/icon-remove-item.svg'
 
-const Carrito = ({carrito,eliminarProducto,calcularTotal}) => {
+const Carrito = ({carrito,eliminarProducto,calcularTotal,cantidadCarrito}) => {
 
     
     return(
         <section className="carrito">
-            <h3 className='carrito-title'>Your Cart</h3>
+            <h3 className='carrito-title'>Your Cart ({cantidadCarrito()})</h3>
             <div className="carrito-container">
                 {carrito.length === 0 
                 ? <div>
@@ -16,7 +16,6 @@ const Carrito = ({carrito,eliminarProducto,calcularTotal}) => {
 
                 </div> 
                 : <div>
-    
                     {carrito.map(productoCarrito => (
                         <div 
                         key={productoCarrito.id}

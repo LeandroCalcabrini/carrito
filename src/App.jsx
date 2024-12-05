@@ -34,6 +34,10 @@ function App() {
     return carrito.reduce((total,producto)=> total + (producto.price * producto.cantidad), 0)
   }
 
+  const cantidadCarrito = () => {
+    return carrito.reduce((total,producto) => total + producto.cantidad, 0)
+  }
+
 
 
   useEffect(()=> {
@@ -57,6 +61,7 @@ function App() {
     carrito={carrito}  
     eliminarProducto={eliminarProducto}
     calcularTotal={calcularTotal}
+    cantidadCarrito={cantidadCarrito}
     />
     </main>
   )
