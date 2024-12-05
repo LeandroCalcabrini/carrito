@@ -25,12 +25,16 @@ function App() {
       setCarrito(menosCantidad)
   };
 
-  const eliminarProducto = (producto) => {
-    const productoEliminado = carrito.filter(item => item.id !== producto.id)
+  const eliminarProducto = (productoCarrito) => {
+    const productoEliminado = carrito.filter(item => item.id !== productoCarrito.id)
     setCarrito(productoEliminado)
-    
- 
+  };
+
+  const calcularTotal = () => {
+    return carrito.reduce((total,producto)=> total + (producto.price * producto.cantidad), 0)
   }
+
+
 
 
   useEffect(()=> {
@@ -38,7 +42,7 @@ function App() {
     .then(response => response.json())
     .then(data => setProductos(data))
     .catch(error => console.log('Error cargando productos:',error))
-},[])
+},[]);
 
   return (
     <main>
@@ -50,9 +54,10 @@ function App() {
     reducirCantidad={reducirCantidad}
     />
     <Carrito
-    carrito={carrito}
-    producto={productos}
-    eliminarProducto={eliminarProducto}/>
+    carrito={carrito}  
+    eliminarProducto={eliminarProducto}
+    calcularTotal={calcularTotal}
+    />
     </main>
   )
 }

@@ -1,7 +1,8 @@
 import emptyCart from '../../images/illustration-empty-cart.svg'
 import '../carrito/carrito.css'
+import iconRemove from '../../images/icon-remove-item.svg'
 
-const Carrito = ({carrito,eliminarProducto}) => {
+const Carrito = ({carrito,eliminarProducto,calcularTotal}) => {
 
     
     return(
@@ -16,21 +17,28 @@ const Carrito = ({carrito,eliminarProducto}) => {
                 </div> 
                 : <div>
     
-                    {carrito.map(producto => (
-                        <div className='carrito-item'>
+                    {carrito.map(productoCarrito => (
+                        <div 
+                        key={productoCarrito.id}
+                        className='carrito-item'>
                             <div className='carrito-item-description'>
-                            <span>{producto.name}</span>
+                            <span>{productoCarrito.name}</span>
                             <div className='carrito-item-number'>
-                                <span>{producto.cantidad}x</span>
-                                <span>@ ${producto.price}</span>
-                                <span>$250</span>
+                                <span>{productoCarrito.cantidad}x</span>
+                                <span>@ ${productoCarrito.price}</span>
+                                <span>${productoCarrito.price * productoCarrito.cantidad}</span>
                             </div>
                             </div>
-                            <button
-                            onClick={() => eliminarProducto(producto)}>x</button>
-                        </div>
+                            <div>
+                                <img
+                                className='img-borrar'
+                                onClick={() => eliminarProducto(productoCarrito)}
+                                src={iconRemove} alt="icono de cruz">
+                                </img> 
+                            </div>
+                        </div>              
                     ))}
-                   
+                    <span>Total: ${calcularTotal()}</span>        
                 </div>
                 }
                 
