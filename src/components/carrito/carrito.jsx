@@ -1,18 +1,24 @@
 import emptyCart from '../../images/illustration-empty-cart.svg'
 import '../carrito/carrito.css'
 import iconRemove from '../../images/icon-remove-item.svg'
+import iconCarcon from '../../images/icon-carbon-neutral.svg'
 
-const Carrito = ({carrito,eliminarProducto,calcularTotal,cantidadCarrito}) => {
+const Carrito = ({carrito, eliminarProducto, calcularTotal, cantidadCarrito, confirmarPedido}) => {
 
-    
+  
     return(
-        <section className="carrito">
+        <section className="carrito-container">
+            <div className='carrito'>
             <h3 className='carrito-title'>Your Cart ({cantidadCarrito()})</h3>
             <div className="carrito-container">
                 {carrito.length === 0 
                 ? <div>
-                    <img src={emptyCart} alt="" />
-                    <p>Your added items will appear here</p>
+                    <div className='emptyimg-container'>
+                    <img src={emptyCart} alt="imagen de una torta" />
+
+                    </div>
+                   
+                    <p className='text-vacio'>Your added items will appear here</p>
 
                 </div> 
                 : <div>
@@ -21,11 +27,11 @@ const Carrito = ({carrito,eliminarProducto,calcularTotal,cantidadCarrito}) => {
                         key={productoCarrito.id}
                         className='carrito-item'>
                             <div className='carrito-item-description'>
-                            <span>{productoCarrito.name}</span>
+                            <span className='carrito-nombre'>{productoCarrito.name}</span>
                             <div className='carrito-item-number'>
-                                <span>{productoCarrito.cantidad}x</span>
-                                <span>@ ${productoCarrito.price}</span>
-                                <span>${productoCarrito.price * productoCarrito.cantidad}</span>
+                                <span className='carrito-cantidad'>{productoCarrito.cantidad}x</span>
+                                <span className='carrito-precio'>@ ${productoCarrito.price}</span>
+                                <span className='carrito-subtotal'>${productoCarrito.price * productoCarrito.cantidad}</span>
                             </div>
                             </div>
                             <div>
@@ -37,17 +43,23 @@ const Carrito = ({carrito,eliminarProducto,calcularTotal,cantidadCarrito}) => {
                             </div>
                         </div>              
                     ))}
-                    <span>Orden total: ${calcularTotal()}</span>    
-                    <div>
-                        <img src="" alt="" />
-                        <p>This is a <span>carbon-neutral</span> delivery</p>
+                    <div className='total-container'>
+                        <p>Orden total</p>
+                        <span className='precio-total'>${calcularTotal()}</span>   
                     </div>
-                    <button className='btn-confirm'>Confirm Orden</button>    
+                    
+                    <div className='neutral-container'>
+                        <img src={iconCarcon} alt="icono de un arbol" />
+                        <p>This is a <span className='neutral-span'>carbon-neutral</span> delivery</p>
+                    </div>
+                    <button 
+                    className='btn-confirm'
+                    onClick={()=>confirmarPedido()}>Confirm Orden</button>    
                 </div>
                 }
                 
             </div>
-
+            </div>           
         </section>
 
     )

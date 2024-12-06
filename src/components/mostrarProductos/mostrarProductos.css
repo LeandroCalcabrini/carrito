@@ -42,7 +42,11 @@
     gap: 10px;
     color: var(--Rose-900);
     font-weight: 600;
-    width: 50%;
+    width: 60%;
+}
+
+.card-button:hover{
+    color: var(--Red);
 }
 
 .card-container-text{
@@ -57,11 +61,11 @@
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 15px;
-    border: solid 1px orange;
+    border-radius: 20px;
+    border: solid 1px var(--Red);
     background: var(--Red);
     color: white;
-    width: 50%;
+    width: 60%;
     height: 42px;
     display: flex;
     justify-content: space-between;
@@ -80,6 +84,11 @@
     cursor: pointer;
     color: white;
     background-color: var(--Red);
+}
+
+.btn-cantidad:hover{
+    background-color: white;
+    color: var(--Red);
 }
 
 .producto-nombre{

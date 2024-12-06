@@ -6,6 +6,8 @@ import Carrito from './components/carrito/carrito'
 function App() {
   const [productos,setProductos] = useState([]);
   const [carrito,setCarrito] = useState([]);
+  const [pedidoConfirmado, setPedidoConfirmado] = useState([]);
+
 
   const agregarProductoAlCarrito = (producto) => {
           setCarrito([...carrito,{...producto, cantidad :1}]);
@@ -38,6 +40,12 @@ function App() {
     return carrito.reduce((total,producto) => total + producto.cantidad, 0)
   }
 
+  const confirmarPedido = () => {
+    if (carrito.length > 0){
+      setPedidoConfirmado([carrito])
+    }
+  }
+
 
 
   useEffect(()=> {
@@ -62,6 +70,7 @@ function App() {
     eliminarProducto={eliminarProducto}
     calcularTotal={calcularTotal}
     cantidadCarrito={cantidadCarrito}
+    confirmarPedido={confirmarPedido}
     />
     </main>
   )
