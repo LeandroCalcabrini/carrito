@@ -33,5 +33,14 @@ main{
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
-    padding: 100px;
+    padding: 50px;
+}
+
+
+
+@media(max-width:1024px){
+    main{
+        display: flex;
+        flex-direction: column;
+    }
 }
